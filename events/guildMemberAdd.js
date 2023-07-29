@@ -17,10 +17,9 @@ module.exports = {
 
     member.roles.add("1134021428010811572")
 
-
     const welcomer = new WebhookClient({
       id: '1134784413742411796',
-      token: 'vjaA0e2vTsHGhWJrKaRQmqqhsJf_-acT0YTFpcLast2zcmMPQTVpJ6NTVijvo3FETZsN-'
+      token: 'vjaA0e2vTsHGhWJrKaRQmqqhsJf_-acT0YTFpcLast2zcmMPQTVpJ6NTVijvo3FETZsN'
     })
     const welcome = new EmbedBuilder()
       .setColor('Green')
