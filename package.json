@@ -1,0 +1,15 @@
+{
+  "name": "naunau",
+  "version": "1.0.0",
+  "description": "NautaVeters's special bot.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Batuhan Türkoğlu",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.11.0",
+    "orio.db": "^3.1.2"
+  }
+}
