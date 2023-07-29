@@ -64,7 +64,7 @@ module.exports = {
 
         const collector = interaction.channel.createMessageComponentCollector({
             componentType: ComponentType.Button,
-            time: 600000
+            time: 86400000
         });
 
         collector.on('collect', async i => {
@@ -194,6 +194,11 @@ module.exports = {
                 }
             }
         });
+
+
+        collector.on('end', collected => interaction.editReply({
+            components: []
+        }));
 
 
     }
