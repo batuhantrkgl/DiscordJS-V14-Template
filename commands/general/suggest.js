@@ -196,10 +196,5 @@ module.exports = {
         });
 
 
-        collector.on('end', collected => interaction.editReply({
-            components: []
-        }));
-
-
     }
 }
