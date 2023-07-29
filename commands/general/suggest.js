@@ -68,6 +68,26 @@ module.exports = {
         });
 
         collector.on('collect', async i => {
+
+            const row_buttons = new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder()
+                .setCustomId('destek')
+                .setLabel('Destekliyorum')
+                .setStyle(ButtonStyle.Success)
+                .setEmoji("946070953719373855")
+            )
+
+
+            .addComponents(
+                new ButtonBuilder()
+                .setCustomId('destekleme')
+                .setLabel('Desteklemiyorum')
+                .setStyle(ButtonStyle.Danger)
+                .setEmoji("946070767014121523"),
+            )
+
+
             const durum = db.get(`${interaction.user.id}_suggest_${interaction.id}`)
             if (i.customId === 'destek') {
                 if (db.has(`${i.member.id}_onay_${interaction.id}`) == true || i.member.id == interaction.member.id) {
@@ -105,7 +125,7 @@ module.exports = {
                         })
                     await interaction.editReply({
                         embeds: [updated_embed],
-                        components: [row]
+                        components: [row_buttons]
                     })
                     await i.fetchReply()
                         .then(reply => console.log(reply.id))
@@ -123,6 +143,25 @@ module.exports = {
                     })
 
                 } else {
+                    const row_buttons = new ActionRowBuilder()
+                    .addComponents(
+                        new ButtonBuilder()
+                        .setCustomId('destek')
+                        .setLabel('Destekliyorum')
+                        .setStyle(ButtonStyle.Success)
+                        .setEmoji("946070953719373855")
+                    )
+        
+        
+                    .addComponents(
+                        new ButtonBuilder()
+                        .setCustomId('destekleme')
+                        .setLabel('Desteklemiyorum')
+                        .setStyle(ButtonStyle.Danger)
+                        .setEmoji("946070767014121523"),
+                    )
+        
+
                     if (db.has(`${i.member.id}_onay_${interaction.id}`) == true) {
                         await db.delete(`${i.member.id}_onay_${interaction.id}`)
                     }
@@ -149,7 +188,7 @@ module.exports = {
 
                     await interaction.editReply({
                         embeds: [updated_embed],
-                        components: [row]
+                        components: [row_buttons]
                     })
 
                 }
